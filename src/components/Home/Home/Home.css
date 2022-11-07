@@ -1,0 +1,12 @@
+.service-section{
+    text-align: center;
+    padding: 50px 0;
+}
+.services{
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+}
