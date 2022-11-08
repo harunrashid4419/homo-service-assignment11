@@ -4,7 +4,16 @@ import { AuthContext } from "../../Context/UserContext";
 import "./Header.css";
 
 const Header = () => {
-   const { user } = useContext(AuthContext);
+   const { user, logOut } = useContext(AuthContext);
+
+   const handleLogOut = () =>{
+      logOut()
+         .then(result =>{
+            const user = result.user;
+            console.log(user)
+         })
+         .catch( error => console.error(error))
+   }
 
    const menu = (
       <li>
@@ -12,7 +21,7 @@ const Header = () => {
          <Link to="/services">Service</Link>
          <Link to="/review">My Review</Link>
          <Link to="/blog">Blog</Link>
-         {user ? <Link>LogOut</Link> : <Link to="/login">LogIn</Link>}
+         {user ? <Link onClick={handleLogOut}>LogOut</Link> : <Link to="/login">LogIn</Link>}
       </li>
    );
 
