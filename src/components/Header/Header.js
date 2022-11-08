@@ -2,26 +2,45 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/UserContext";
 import "./Header.css";
+import { FaUserAlt } from "react-icons/fa";
 
 const Header = () => {
    const { user, logOut } = useContext(AuthContext);
 
-   const handleLogOut = () =>{
+   const handleLogOut = () => {
       logOut()
-         .then(result =>{
+         .then((result) => {
             const user = result.user;
-            console.log(user)
+            console.log(user);
          })
-         .catch( error => console.error(error))
-   }
+         .catch((error) => console.error(error));
+   };
 
    const menu = (
       <li>
          <Link to="/">Home</Link>
          <Link to="/services">Service</Link>
+         <Link>My Service</Link>
          <Link to="/review">My Review</Link>
          <Link to="/blog">Blog</Link>
-         {user ? <Link onClick={handleLogOut}>LogOut</Link> : <Link to="/login">LogIn</Link>}
+         {user ? (
+            <>
+               <Link onClick={handleLogOut}>LogOut</Link>
+               {
+                  user.photoURL ?
+                  <img
+                  style={{ width: "60px" }}
+                  className="ms-3 rounded-circle"
+                  src={user?.photoURL}
+                  alt=""
+               />
+                  :
+                  <FaUserAlt/>
+               }
+            </>
+         ) : (
+            <Link to="/login">LogIn</Link>
+         )}
       </li>
    );
 

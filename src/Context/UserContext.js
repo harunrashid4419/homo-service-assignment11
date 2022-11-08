@@ -7,6 +7,7 @@ import {
    onAuthStateChanged,
    signOut,
    signInWithPopup,
+   updateProfile,
 } from "firebase/auth";
 
 export const AuthContext = createContext();
@@ -41,7 +42,18 @@ const UserContext = ({ children }) => {
       };
    }, []);
 
-   const authInfo = { createUser, logIn, user, logOut, googleSignIn };
+   const profileUpdate = (profile) => {
+      return updateProfile(auth.currentUser, profile);
+   };
+
+   const authInfo = {
+      createUser,
+      logIn,
+      user,
+      logOut,
+      googleSignIn,
+      profileUpdate,
+   };
    return (
       <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
    );
