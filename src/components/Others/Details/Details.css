@@ -1,0 +1,42 @@
+.details-container{
+    max-width: 1240px;
+    padding: 0 50px;
+    margin: 0 auto;
+}
+.details-container img{
+    width: 100%;
+}
+.details-section{
+    width: 70%;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+.details-section h2{
+    color: orange;
+    font-size: 24px;
+    margin: 8px 0;
+    font-weight: bold;
+}
+.details-section span{
+    color: olivedrab;
+    font-size: 18px;
+    font-weight: 600;
+}
+.details-section p{
+    color: gray;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 15px 0;
+}
+.details-section #textarea{
+    width: 100%;
+    margin-top: 30px;
+}
+@media screen and (max-width: 767px) {
+    .details-section{
+        width: 100%;
+    }
+    .details-container{
+        padding: 0 30px;
+    }
+}

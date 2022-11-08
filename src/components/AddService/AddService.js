@@ -35,7 +35,8 @@ const AddService = () => {
 
    return (
       <div id="service-container" className="add-service">
-         <form onSubmit={handleSubmit}>
+        <h3>Add you service</h3>
+         <form className="form" onSubmit={handleSubmit}>
             <div className="form-control">
                <label className="label">
                   <span className="label-text">Service Name</span>
@@ -46,6 +47,7 @@ const AddService = () => {
                   placeholder="add service name"
                   className="input input-bordered"
                   name="service_name"
+                  required
                />
             </div>
             <div className="form-control">
@@ -58,6 +60,7 @@ const AddService = () => {
                   placeholder="enter image url"
                   className="input input-bordered"
                   name="img"
+                  required
                />
             </div>
             <div className="form-control">
@@ -70,6 +73,7 @@ const AddService = () => {
                   placeholder="around price"
                   className="input input-bordered"
                   name="price"
+                  required
                />
             </div>
             <div className="form-control">
@@ -82,6 +86,7 @@ const AddService = () => {
                   placeholder="Say Details"
                   className="input input-bordered"
                   name="description"
+                  required
                />
             </div>
             <div className="form-control mt-6">

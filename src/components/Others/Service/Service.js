@@ -9,7 +9,7 @@ const Service = ({ service }) => {
          <img src={img} alt="" />
          <h2>{service_name}</h2>
          <div className="service-price">
-            <span>Price: TK.{price}</span>
+            <span>Service Price: TK.{price}</span>
             <span>Rating: {rating}</span>
          </div>
       </div>

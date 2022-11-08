@@ -7,3 +7,23 @@
 #service-container{
     width: 60%;
 }
+.form{
+    border: 1px solid rgba(0, 0, 0, 0.301);
+    padding: 30px;
+    border-radius: 10px;
+}
+.add-service h3{
+    text-align: center;
+    font-size: 32px;
+    color: orange;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+@media screen and (max-width: 767px) {
+    .add-service{
+        padding: 0 30px;
+    }
+    #service-container{
+        width: 100%;
+    }
+}

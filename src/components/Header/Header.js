@@ -20,11 +20,11 @@ const Header = () => {
       <li>
          <Link to="/">Home</Link>
 
+         <Link to='/addService'>Add Service</Link>
          <Link to="/blog">Blog</Link>
          {user ? (
             <>
                <Link to="/services">Service</Link>
-               <Link to='/addService'>Add Service</Link>
                <Link to="/review">My Review</Link>
                <Link onClick={handleLogOut}>LogOut</Link>
                {user.photoURL ? (

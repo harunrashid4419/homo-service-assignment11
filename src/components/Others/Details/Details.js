@@ -1,14 +1,59 @@
-import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useState } from "react";
+import "./Details.css";
+import { useLoaderData } from "react-router-dom";
 
 const Details = () => {
-    const details = useLoaderData();
-    console.log(details)
-    return (
-        <div>
-            
-        </div>
-    );
+   const [review, setReview] = useState({});
+   const details = useLoaderData();
+   const { service_name, img, description, price } = details;
+
+   const handleReviewSubmit = (event) => {
+      event.preventDefault();
+
+      fetch("http://localhost:5000/review", {
+         method: "POST",
+         headers: {
+            "content-type": "application/json",
+         },
+         body: JSON.stringify(review),
+      })
+         .then((res) => res.json())
+         .then((data) => {
+            console.log(data);
+         });
+   };
+
+   const handleBlur = (event) => {
+      const value = event.target.value;
+      const field = event.target.name;
+      const allReview = { ...review };
+      allReview[field] = value;
+      setReview(allReview);
+   };
+
+   return (
+      <div className="details-container">
+         <div className="details-section">
+            <h2>{service_name}</h2>
+            <span>Repair Price: Tk {price}</span>
+            <p>{description}</p>
+            <img src={img} alt="" />
+            <textarea
+               id="textarea"
+               className="textarea textarea-primary"
+               placeholder="please give a review"
+               onBlur={handleBlur}
+               name="review"
+            ></textarea>
+            <input
+               onClick={handleReviewSubmit}
+               type="submit"
+               value="Submit"
+               className="btn"
+            />
+         </div>
+      </div>
+   );
 };
 
 export default Details;
