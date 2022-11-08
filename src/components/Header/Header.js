@@ -19,24 +19,24 @@ const Header = () => {
    const menu = (
       <li>
          <Link to="/">Home</Link>
-         <Link to="/services">Service</Link>
-         <Link>My Service</Link>
-         <Link to="/review">My Review</Link>
+
          <Link to="/blog">Blog</Link>
          {user ? (
             <>
+               <Link to="/services">Service</Link>
+               <Link to='/addService'>Add Service</Link>
+               <Link to="/review">My Review</Link>
                <Link onClick={handleLogOut}>LogOut</Link>
-               {
-                  user.photoURL ?
+               {user.photoURL ? (
                   <img
-                  style={{ width: "60px" }}
-                  className="ms-3 rounded-circle"
-                  src={user?.photoURL}
-                  alt=""
-               />
-                  :
-                  <FaUserAlt/>
-               }
+                     style={{ width: "60px" }}
+                     className="ms-3 rounded-circle"
+                     src={user?.photoURL}
+                     alt=""
+                  />
+               ) : (
+                  <FaUserAlt />
+               )}
             </>
          ) : (
             <Link to="/login">LogIn</Link>
