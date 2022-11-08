@@ -11,6 +11,7 @@ const Home = () => {
       <div>
          <Slider></Slider>
          <div className="service-section">
+            <h1>OUR SERVICES</h1>
             <div className="services">
                {services.map((service) => (
                   <Service key={service._id} service={service}></Service>
