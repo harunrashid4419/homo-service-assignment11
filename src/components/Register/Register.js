@@ -26,6 +26,7 @@ const Register = () => {
             .then(result =>{
                 const user = result.user;
                 setError('');
+                form.reset();
                 navigate('/login');
                 toast.success('Registration success');
             })
@@ -40,6 +41,7 @@ const Register = () => {
             .then(result =>{
                 const user = result.user;
                 console.log(user)
+                navigate('/');
             })
             .then( error => console.error(error))
     }
