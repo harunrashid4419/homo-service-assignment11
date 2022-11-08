@@ -1,11 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Details.css";
 import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../../Context/UserContext";
 
 const Details = () => {
+   const { user } = useContext(AuthContext);
    const [review, setReview] = useState({});
    const details = useLoaderData();
    const { service_name, img, description, price } = details;
+
+ 
+    const reviewDetails = {
+        name: user?.displayName,
+        photoURL : user?.photoURL,
+        review: review.review,
+    }
 
    const handleReviewSubmit = (event) => {
       event.preventDefault();
@@ -15,7 +24,7 @@ const Details = () => {
          headers: {
             "content-type": "application/json",
          },
-         body: JSON.stringify(review),
+         body: JSON.stringify(reviewDetails),
       })
          .then((res) => res.json())
          .then((data) => {
