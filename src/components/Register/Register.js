@@ -1,11 +1,14 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/UserContext";
 import "./Register.css";
+import { toast } from "react-toastify";
 
 
 const Register = () => {
     const {createUser} = useContext(AuthContext);
+    const navigate = useNavigate();
+    const [error, setError] = useState('');
 
 
     const handleSubmit = event =>{
@@ -20,9 +23,14 @@ const Register = () => {
         createUser(email, password)
             .then(result =>{
                 const user = result.user;
-                console.log(user)
+                setError('');
+                navigate('/login');
+                toast.success('Registration success');
             })
-            .catch( err => console.error(err))
+            .catch( error => {
+                console.error(error);
+                setError(error.message)
+            })
     }
 
    return (
@@ -40,6 +48,7 @@ const Register = () => {
                   placeholder="Name"
                   name="name"
                   className="input input-bordered"
+                  required
                />
             </div>
             <div className="form-control">
@@ -51,6 +60,7 @@ const Register = () => {
                   placeholder="PhotoURL"
                   name="photoURL"
                   className="input input-bordered"
+                  required
                />
             </div>
             <div className="form-control">
@@ -62,6 +72,7 @@ const Register = () => {
                   placeholder="email"
                   name="email"
                   className="input input-bordered"
+                  required
                />
             </div>
             <div className="form-control">
@@ -73,8 +84,10 @@ const Register = () => {
                   placeholder="password"
                   name="password"
                   className="input input-bordered"
+                  required
                />
             </div>
+            <p className="text-red-500 mt-3 ">{error}</p>
             <div className="form-control mt-6">
                <button className="btn btn-primary">Register</button>
                <p className="text-center py-5">

@@ -2,12 +2,20 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Login = () => {
+
+    const handleLogin = event =>{
+        event.preventDefault();
+
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password)
+    }
+
    return (
       <div className="registration-section">
-         <form>
-            <h1 className="text-center text-4xl text-orange-500">
-               Please Login
-            </h1>
+         <h1 className="text-center text-4xl text-orange-500">Please Login</h1>
+         <form onSubmit={handleLogin}>
             <div className="form-control">
                <label className="label">
                   <span className="label-text">Email</span>
