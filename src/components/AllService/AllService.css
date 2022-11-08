@@ -1,0 +1,8 @@
+.allService-container{
+    max-width: 1240px;
+    padding: 0 50px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+}

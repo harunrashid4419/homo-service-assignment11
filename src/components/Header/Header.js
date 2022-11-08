@@ -11,7 +11,7 @@ const Header = () => {
             <Link to='/services'>Service</Link>
             <Link to='/review'>My Review</Link>
             <Link to='/blog'>Blog</Link>
-            <Link to='/register'>Register</Link>
+            <Link to='/login'>LogIn</Link>
             <Link>LogOut</Link>
         </li>
     )
@@ -43,7 +43,7 @@ const Header = () => {
                   {menu}
                </ul>
             </div>
-            <Link className="btn btn-ghost normal-case text-xl">WifiService</Link>
+            <Link to='/' className="btn btn-ghost normal-case text-orange-400 font-bold text-2xl">HomoService</Link>
          </div>
          <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal p-0">

@@ -1,0 +1,32 @@
+.services-container{
+    border: 2px solid #0000001f;
+    padding: 20px 10px;
+    border-radius: 10px;
+    text-align: left;
+}
+.services-container img{
+    width: 100%;
+}
+.services-container .rating{
+    display: flex;
+    justify-content: space-between;
+}
+.services-container h2{
+    color: orange;
+    font-size: 18px;
+    margin: 8px 0;
+}
+.services-container span{
+    color: olivedrab;
+    font-size: 16px;
+}
+.services-container p{
+    color: gray;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 5px 0;
+}
+.services-container .service-btn{
+    text-align: center;
+    margin-top: 30px;
+}

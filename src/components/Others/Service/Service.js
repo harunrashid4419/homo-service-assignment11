@@ -2,7 +2,7 @@ import React from "react";
 import "./Service.css";
 
 const Service = ({ service }) => {
-   const { _id, service_name, img, description, price, rating } = service;
+   const { service_name, img, price, rating } = service;
 
    return (
       <div className="service">
