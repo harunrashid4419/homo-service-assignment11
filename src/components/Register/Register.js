@@ -3,10 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/UserContext";
 import "./Register.css";
 import { toast } from "react-toastify";
+import {GoogleAuthProvider} from 'firebase/auth';
 
+const googleProvider = new GoogleAuthProvider();
 
 const Register = () => {
-    const {createUser} = useContext(AuthContext);
+    const {createUser, googleSignIn} = useContext(AuthContext);
     const navigate = useNavigate();
     const [error, setError] = useState('');
 
@@ -31,6 +33,15 @@ const Register = () => {
                 console.error(error);
                 setError(error.message)
             })
+    }
+
+    const handleGoogleSingIn = () =>{
+        googleSignIn(googleProvider)
+            .then(result =>{
+                const user = result.user;
+                console.log(user)
+            })
+            .then( error => console.error(error))
     }
 
    return (
@@ -96,6 +107,8 @@ const Register = () => {
                      Login
                   </Link>{" "}
                </p>
+               <p className="text-2xl text-center py-4">or</p>
+               <button onClick={handleGoogleSingIn} className="btn btn-outline btn-success"> Google SignIn</button>
             </div>
          </form>
       </div>
