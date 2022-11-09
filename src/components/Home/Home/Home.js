@@ -12,6 +12,7 @@ const Home = () => {
    return (
       <div>
          <Slider></Slider>
+         <WhyChoose></WhyChoose>
          <div className="service-section">
             <h1>OUR SERVICES</h1>
             <div className="services">
@@ -23,7 +24,7 @@ const Home = () => {
                <button className="btn btn-primary mt-10">See All</button>
             </Link>
          </div>
-         <WhyChoose></WhyChoose>
+         
          <ServiceCategory></ServiceCategory>
       </div>
    );
