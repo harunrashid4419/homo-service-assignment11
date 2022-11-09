@@ -9,9 +9,11 @@ const Details = () => {
    useTitle('Service Details')
    const { user } = useContext(AuthContext);
    const [review, setReview] = useState({});
+   const [getReview, setGetReview] = useState({})
    const details = useLoaderData();
-   const { service_name, img, description, price } = details;
+   const { service_name, img, description, price, _id } = details;
 
+   console.log(getReview);
    
    const reviewDetails = {
       name: user?.displayName,
@@ -48,6 +50,14 @@ const Details = () => {
       allReview[field] = value;
       setReview(allReview);
    };
+
+   useEffect( () =>{
+      fetch(`http://localhost:5000/review/${_id}`)
+         .then(res => res.json())
+         .then(data => {
+            setGetReview(data);
+         })
+   }, [_id])
 
 
    return (

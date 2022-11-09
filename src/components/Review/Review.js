@@ -15,7 +15,7 @@ const Review = () => {
       fetch(`http://localhost:5000/review?email=${user?.email}`)
          .then((res) => res.json())
          .then((data) => {
-            console.log(data);
+            // console.log(data);
             setReview(data);
          });
    }, [user?.email]);
@@ -31,7 +31,7 @@ const Review = () => {
          })
             .then((res) => res.json())
             .then((data) => {
-               console.log(data);
+               // console.log(data);
                const remainingReview = review.filter(dr => dr._id !== id);
                setReview(remainingReview);
                if(data.deletedCount > 0){
