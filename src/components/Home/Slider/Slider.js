@@ -1,7 +1,7 @@
 import React from "react";
-import firstImg from '../../../assets/fridge-repair.jpg';
-import secondImg from '../../../assets/images (1).jpg';
-import thirdImg from '../../../assets/istockphoto-1096963798-612x612.jpg';
+import firstImg from '../../../assets/New Project.png';
+import secondImg from '../../../assets/img3.png';
+import thirdImg from '../../../assets/img2.png';
 import SliderDetails from "./SliderDetails";
 
 

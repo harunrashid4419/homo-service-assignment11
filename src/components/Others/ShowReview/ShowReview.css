@@ -1,6 +1,6 @@
 .main-container{
     max-width: 1240px;
-    padding: 0 50px;
+    padding: 0 50px 20px 50px;
     margin: 0 auto;
 }
 .show-review-container {
@@ -53,6 +53,6 @@
         width: 100%;
     }
     .main-container{
-        padding: 0 30px;
+        padding: 0 30px 20px 30px;
     }
 }
