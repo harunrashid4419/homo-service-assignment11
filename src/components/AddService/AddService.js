@@ -15,14 +15,14 @@ const AddService = () => {
          },
          body: JSON.stringify(service),
       })
-        .then(res => res.json())
-        .then(data =>{
+         .then((res) => res.json())
+         .then((data) => {
             console.log(data);
-            if(data.acknowledged){
-                toast.success('service added');
-                event.target.reset();
+            if (data.acknowledged) {
+               toast.success("service added");
+               event.target.reset();
             }
-        })
+         });
    };
 
    const handleBlur = (event) => {
@@ -35,7 +35,7 @@ const AddService = () => {
 
    return (
       <div id="service-container" className="add-service">
-        <h3>Add you service</h3>
+         <h3>Add you service</h3>
          <form className="form" onSubmit={handleSubmit}>
             <div className="form-control">
                <label className="label">

@@ -1,7 +1,8 @@
 import React, { useContext, useState } from "react";
 import "./Details.css";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../Context/UserContext";
+import { toast } from "react-toastify";
 
 const Details = () => {
    const { user } = useContext(AuthContext);
@@ -9,12 +10,14 @@ const Details = () => {
    const details = useLoaderData();
    const { service_name, img, description, price } = details;
 
- 
-    const reviewDetails = {
-        name: user?.displayName,
-        photoURL : user?.photoURL,
-        review: review.review,
-    }
+   
+   const reviewDetails = {
+      name: user?.displayName,
+      photoURL: user?.photoURL,
+      email: user?.email,
+      review: review.review,
+      service_name: service_name,
+   };
 
    const handleReviewSubmit = (event) => {
       event.preventDefault();
@@ -29,6 +32,10 @@ const Details = () => {
          .then((res) => res.json())
          .then((data) => {
             console.log(data);
+            if (data.acknowledged) {
+               toast.success("Review Success");
+               event.target.reset();
+            }
          });
    };
 
@@ -47,19 +54,25 @@ const Details = () => {
             <span>Repair Price: Tk {price}</span>
             <p>{description}</p>
             <img src={img} alt="" />
-            <textarea
-               id="textarea"
-               className="textarea textarea-primary"
-               placeholder="please give a review"
-               onBlur={handleBlur}
-               name="review"
-            ></textarea>
-            <input
-               onClick={handleReviewSubmit}
-               type="submit"
-               value="Submit"
-               className="btn"
-            />
+            {user ? (
+               <>
+                  <textarea
+                     id="textarea"
+                     className="textarea textarea-primary"
+                     placeholder="please give a review"
+                     onBlur={handleBlur}
+                     name="review"
+                  ></textarea>
+                  <input
+                     onClick={handleReviewSubmit}
+                     type="submit"
+                     value="Submit"
+                     className="btn"
+                  />
+               </>
+            ) : (
+               <p>Please login first. then you can review any products. Go to <Link className="text-red-400" to='/login'>Login Page</Link> </p>
+            )}
          </div>
       </div>
    );
