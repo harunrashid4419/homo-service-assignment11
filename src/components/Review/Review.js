@@ -39,7 +39,6 @@ const Review = () => {
       }
    };
 
-
    return (
       <div>
          <div className="review-container">

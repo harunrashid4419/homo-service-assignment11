@@ -5,9 +5,11 @@ import Blog from "../components/Blog/Blog";
 import Home from "../components/Home/Home/Home";
 import Login from "../components/Login/Login";
 import Details from "../components/Others/Details/Details";
+import Update from "../components/Others/Update/Update";
 import Register from "../components/Register/Register";
 import Review from "../components/Review/Review";
 import Main from "../Layout/Main";
+import PrivateRouter from "./PrivateRouter";
 
 const router = createBrowserRouter([
     {
@@ -47,11 +49,16 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addService',
-                element: <AddService></AddService>
+                element: <PrivateRouter><AddService></AddService></PrivateRouter>
             },
             {
                 path: '/review',
-                element: <Review></Review>
+                element: <PrivateRouter><Review></Review></PrivateRouter>
+            },
+            {
+                path: '/update/:id',
+                element: <Update></Update>,
+                loader: ({params}) => fetch(`http://localhost:5000/review/${params.id}`)
             }
         ]
     }

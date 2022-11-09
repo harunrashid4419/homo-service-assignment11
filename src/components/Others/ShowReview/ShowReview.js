@@ -1,10 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./ShowReview.css";
 
 const ShowReview = ({ userReview, handleDelete }) => {
    const { service_name, review, _id } = userReview;
-
-   console.log(userReview.length)
 
    return (
       <div className="main-container">
@@ -16,7 +15,9 @@ const ShowReview = ({ userReview, handleDelete }) => {
                <button onClick={() => handleDelete(_id)} className="delete-btn">
                   Delete
                </button>
-               <button className="update-btn">Update</button>
+               <Link to={`/update/${_id}`}>
+                  <button className="update-btn">Update</button>
+               </Link>
             </div>
          </div>
       </div>

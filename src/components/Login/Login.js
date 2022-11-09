@@ -1,32 +1,42 @@
-import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/UserContext";
 
 const Login = () => {
-    const {logIn} = useContext(AuthContext);
-    const navigate = useNavigate();
-    const [error, setError] = useState('');
+   const { logIn, user } = useContext(AuthContext);
 
-    const handleLogin = event =>{
-        event.preventDefault();
+   const navigate = useNavigate();
+   const location = useLocation();
+   const from = location.state?.from?.pathname || "/";
 
-        const form = event.target;
-        const email = form.email.value;
-        const password = form.password.value;
-        
-        logIn(email, password)
-            .then( result => {
-                const user = result.user;
-                console.log(user);
-                form.reset();
-                setError('');
-                navigate('/');
-            })
-            .catch(error =>{
-                console.error(error);
-                setError(error.message);
-            })
-    }
+   const [error, setError] = useState("");
+
+   const handleLogin = (event) => {
+      event.preventDefault();
+
+      const form = event.target;
+      const email = form.email.value;
+      const password = form.password.value;
+
+      logIn(email, password)
+         .then((result) => {
+            const user = result.user;
+            console.log(user);
+            // navigate(from, { replace: true });
+            form.reset();
+            setError("");
+         })
+         .catch((error) => {
+            console.error(error);
+            setError(error.message);
+         });
+   };
+
+   useEffect(() => {
+      if(user && user?.uid){
+         navigate(from, { replace: true });
+      }
+   }, [user, from, navigate]);
 
    return (
       <div className="registration-section">

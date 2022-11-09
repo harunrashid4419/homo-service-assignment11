@@ -1,0 +1,30 @@
+.update-form{
+    max-width: 1240px;
+    padding: 0 50px;
+    margin: 0 auto;
+}
+.update-section{
+    width: 60%;
+    background-color: black;
+    margin: 0 auto;
+    padding: 30px;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+.update-section p{
+    color: orange;
+    font-size: 32px;
+    text-align: center;
+    
+}
+#textarea{
+    width: 100%;
+}
+@media screen and (max-width: 767px) {
+    .update-section{
+        width: 100%;
+    }
+    .update-form{
+        padding: 0 30px;
+    }
+}
