@@ -22,7 +22,6 @@ const Login = () => {
          .then((result) => {
             const user = result.user;
             console.log(user);
-            // navigate(from, { replace: true });
             form.reset();
             setError("");
          })
@@ -33,7 +32,7 @@ const Login = () => {
    };
 
    useEffect(() => {
-      if(user && user?.uid){
+      if (user && user?.uid) {
          navigate(from, { replace: true });
       }
    }, [user, from, navigate]);
