@@ -1,10 +1,13 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import useTitle from "../../hook/useTitle";
 import SingleService from "../Others/SingleService/SingleService";
 import "./AllService.css";
 
 const AllServices = () => {
    const services = useLoaderData();
+
+   useTitle('Service')
 
    return (
       <div className="service-section">

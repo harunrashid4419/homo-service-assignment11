@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../Context/UserContext";
+import useTitle from "../../hook/useTitle";
 import ShowReview from "../Others/ShowReview/ShowReview";
 import './Review.css';
 
@@ -8,6 +9,7 @@ import './Review.css';
 const Review = () => {
    const { user } = useContext(AuthContext);
    const [review, setReview] = useState([]);
+   useTitle('Review')
    
    useEffect(() => {
       fetch(`http://localhost:5000/review?email=${user?.email}`)

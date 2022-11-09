@@ -3,8 +3,10 @@ import "./Details.css";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../Context/UserContext";
 import { toast } from "react-toastify";
+import useTitle from "../../../hook/useTitle";
 
 const Details = () => {
+   useTitle('Service Details')
    const { user } = useContext(AuthContext);
    const [review, setReview] = useState({});
    const details = useLoaderData();

@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import useTitle from "../../hook/useTitle";
 import "./AddService.css";
 
 const AddService = () => {
    const [service, setService] = useState([]);
+   useTitle('AddService')
 
    const handleSubmit = (event) => {
       event.preventDefault();

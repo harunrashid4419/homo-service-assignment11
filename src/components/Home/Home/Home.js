@@ -5,10 +5,13 @@ import Service from "../../Others/Service/Service";
 import Slider from "../Slider/Slider";
 import ServiceCategory from "../ServiceCategory/ServiceCategory";
 import WhyChoose from "../WhyChoose/WhyChoose";
+import useTitle from "../../../hook/useTitle";
 
 const Home = () => {
    const services = useLoaderData();
    
+   useTitle('Home')
+
    return (
       <div>
          <Slider></Slider>

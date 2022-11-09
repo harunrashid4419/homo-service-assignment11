@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { toast } from "react-toastify";
+import useTitle from "../../../hook/useTitle";
 import "./Update.css";
 
 const Update = () => {
    const review = useLoaderData();
    const [displayReview, setDisplayReview] = useState(review);
+   useTitle('Review Update')
 
    const handleSubmit = (event) => {
       event.preventDefault();

@@ -1,7 +1,10 @@
 import React from "react";
+import useTitle from "../../hook/useTitle";
 import "./Blog.css";
 
 const Blog = () => {
+   useTitle('Blog')
+
    return (
       <div className="blog-section">
          <h1>Question and Answer:-</h1>
