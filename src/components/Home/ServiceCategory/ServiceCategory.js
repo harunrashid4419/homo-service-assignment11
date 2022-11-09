@@ -15,7 +15,7 @@ const ServiceCategory = () => {
                 </div>
                 <div>
                     <p>Successfully Service</p>
-                    <h2>1200+</h2>
+                    <h2>1500+</h2>
                 </div>
             </div>
         </div>
