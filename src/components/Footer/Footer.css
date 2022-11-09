@@ -1,0 +1,77 @@
+.footer-container{
+    background-color: black;
+}
+.footer-section{
+    padding: 50px 50px;
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+}
+.footer-section .left-side li{
+    display: flex;
+}
+.footer-section .left-side a{
+    padding: 15px 20px 15px 0;
+    font-size: 22px;
+    color: white;
+    transition: .5s;
+}
+.footer-section .left-side a:hover{
+    color: orange;
+}
+.footer-section h1{
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+}
+.footer-section p{
+    color: gray;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+.footer-section .right-side span{
+    color: orange;
+    font-size: 18px;
+    font-weight: 700;  
+}
+.footer-section .middle-side a{
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    transition: .5s;
+}
+.footer-section .middle-side a:hover{
+    color: orangered;
+}
+.footer-section .socket p{
+    text-align: center;
+    color: white;
+
+}
+.footer-section .left-side{
+    width: 35%;
+}
+.footer-section .middle-side{
+    width: 23%;
+}
+.footer-section .right-side{
+    width: 42%;
+}
+@media screen and (max-width: 776px) {
+    .footer-section{
+        display: block;
+        padding: 30px 30px;
+    }
+    .footer-section .left-side{
+        width: 100%;
+    }
+    .footer-section .middle-side{
+        width: 100%;
+        padding: 30px 0;
+    }
+    .footer-section .right-side{
+        width: 100%;
+    }
+}

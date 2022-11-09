@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Details.css";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../Context/UserContext";
@@ -46,6 +46,7 @@ const Details = () => {
       allReview[field] = value;
       setReview(allReview);
    };
+
 
    return (
       <div className="details-container">
