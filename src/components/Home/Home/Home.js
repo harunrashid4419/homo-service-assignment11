@@ -3,6 +3,7 @@ import "./Home.css";
 import { Link, useLoaderData } from "react-router-dom";
 import Service from "../../Others/Service/Service";
 import Slider from "../Slider/Slider";
+import ServiceCategory from "../ServiceCategory/ServiceCategory";
 
 const Home = () => {
    const services = useLoaderData();
@@ -21,6 +22,7 @@ const Home = () => {
                <button className="btn btn-primary mt-10">See All</button>
             </Link>
          </div>
+         <ServiceCategory></ServiceCategory>
       </div>
    );
 };
