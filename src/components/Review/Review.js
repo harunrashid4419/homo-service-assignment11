@@ -9,13 +9,9 @@ import './Review.css';
 const Review = () => {
    const { user, logOut } = useContext(AuthContext);
    const [review, setReview] = useState([]);
-   const [reviewlength, setReviewLength] = useState({});
-   useTitle('Review')
    
-   // if(review.length === 0){
-   //    setReviewLength('no review here')
-   // }
-
+   useTitle('Review');
+   
    useEffect(() => {
       fetch(`https://eleventh-assignment-server.vercel.app/review?email=${user?.email}`, {
          headers: {

@@ -1,5 +1,4 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
 import useTitle from "../../hook/useTitle";
 import "./Blog.css";
 

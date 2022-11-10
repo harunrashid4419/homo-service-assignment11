@@ -4,12 +4,7 @@ import "./ShowReview.css";
 
 const ShowReview = ({ userReview, handleDelete, reviewLength }) => {
    const { service_name, review, _id } = userReview;
-   const [reviewNumber, setReviewNumber] = useState('')
-
-   if(reviewLength.length === 0){
-      setReviewNumber('fjfdjf')
-   }
-
+   
    return (
       <div className="main-container">
          <div className="show-review-container">
