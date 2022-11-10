@@ -1,13 +1,12 @@
 #slider-img{
     position: relative;
-    height: 100vh;
 }
 .slider-caption{
     position: absolute;
     width: 50%;
     margin-left: 100px;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 30%;
+    transform: translateY(-30%);
 }
 .slider-caption h2{
     color: orange;
@@ -26,4 +25,8 @@
         width: 85%;
         margin-left: 50px;
     }
+    .slider-caption h2{
+    font-size: 22px;
+    line-height: 27px;
+}
 }

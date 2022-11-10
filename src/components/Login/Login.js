@@ -103,6 +103,7 @@ const Login = () => {
                   
                </div>
             </div>
+            <Link onClick={handleForgot}>Forgot Password?</Link>
             <p className="text-red-500">{error}</p>
             <div className="form-control mt-6">
                <button className="btn btn-primary">LogIn</button>

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../Context/UserContext";
 import "./Header.css";
 import { FaUserAlt } from "react-icons/fa";
@@ -18,14 +18,14 @@ const Header = () => {
 
    const menu = (
       <li>
-         <Link to="/">Home</Link>
-         <Link to="/services">Service</Link>
-         <Link to="/blog">Blog</Link>
+         <NavLink to="/">Home</NavLink>
+         <NavLink to="/services">Service</NavLink>
+         <NavLink to="/blog">Blog</NavLink>
          {user ? (
             <>
-            <Link to="/addService">Add Service</Link>
-               <Link to="/review">My Review</Link>
-               <Link onClick={handleLogOut}>LogOut</Link>
+            <NavLink to="/addService">Add Service</NavLink>
+               <NavLink to="/review">My Review</NavLink>
+               <NavLink onClick={handleLogOut}>LogOut</NavLink>
                {user.photoURL ? (
                   <img
                      style={{ width: "60px" }}
@@ -38,7 +38,7 @@ const Header = () => {
                )}
             </>
          ) : (
-            <Link to="/login">LogIn</Link>
+            <NavLink to="/login">LogIn</NavLink>
          )}
       </li>
    );
@@ -70,12 +70,12 @@ const Header = () => {
                   {menu}
                </ul>
             </div>
-            <Link
+            <NavLink
                to="/"
                className="btn btn-ghost normal-case text-orange-400 font-bold text-2xl"
             >
                HomoService
-            </Link>
+            </NavLink>
          </div>
          <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal p-0">{menu}</ul>

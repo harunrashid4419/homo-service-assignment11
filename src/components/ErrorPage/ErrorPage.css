@@ -1,0 +1,14 @@
+.error-page{
+    margin-top: 100px;
+    text-align: center;
+}
+.error-page h2{
+    font-size: 28px;
+    color: orange;
+    font-weight: 700;
+}
+.error-page a{
+    color: red;
+    text-decoration: underline;
+    font-weight: 700;
+}
