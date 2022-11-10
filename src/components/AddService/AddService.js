@@ -10,10 +10,11 @@ const AddService = () => {
    const handleSubmit = (event) => {
       event.preventDefault();
 
-      fetch("http://localhost:5000/allServices", {
+      fetch("https://eleventh-assignment-server.vercel.app/allServices", {
          method: "POST",
          headers: {
             "content-type": "application/json",
+            authorization: `Bearer ${localStorage.getItem('token')}`,
          },
          body: JSON.stringify(service),
       })

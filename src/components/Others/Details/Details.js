@@ -13,7 +13,11 @@ const Details = () => {
    const details = useLoaderData();
    const { service_name, img, description, price, _id } = details;
 
-   console.log(getReview);
+   useEffect(() => {
+      fetch(`https://eleventh-assignment-server.vercel.app/review`)
+         .then(res => res.json())
+         .then(data => setGetReview(data))
+   },[])
    
    const reviewDetails = {
       name: user?.displayName,
@@ -26,7 +30,7 @@ const Details = () => {
    const handleReviewSubmit = (event) => {
       event.preventDefault();
 
-      fetch("http://localhost:5000/review", {
+      fetch("https://eleventh-assignment-server.vercel.app/review", {
          method: "POST",
          headers: {
             "content-type": "application/json",
@@ -51,13 +55,6 @@ const Details = () => {
       setReview(allReview);
    };
 
-   useEffect( () =>{
-      fetch(`http://localhost:5000/review/${_id}`)
-         .then(res => res.json())
-         .then(data => {
-            setGetReview(data);
-         })
-   }, [_id])
 
 
    return (

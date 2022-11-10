@@ -19,7 +19,7 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/services')
+                loader: () => fetch('https://eleventh-assignment-server.vercel.app/services')
             },
             {
                 path: '/home',
@@ -28,12 +28,12 @@ const router = createBrowserRouter([
             {
                 path: '/services',
                 element: <AllServices></AllServices>,
-                loader: () => fetch('http://localhost:5000/allServices')
+                loader: () => fetch('https://eleventh-assignment-server.vercel.app/allServices')
             },
             {
                 path: '/details/:id',
                 element: <Details></Details>,
-                loader: ({params}) => fetch(`http://localhost:5000/allServices/${params.id}`)
+                loader: ({params}) => fetch(`https://eleventh-assignment-server.vercel.app/allServices/${params.id}`)
             },
             {
                 path: '/register',
@@ -58,7 +58,7 @@ const router = createBrowserRouter([
             {
                 path: '/update/:id',
                 element: <Update></Update>,
-                loader: ({params}) => fetch(`http://localhost:5000/review/${params.id}`)
+                loader: ({params}) => fetch(`https://eleventh-assignment-server.vercel.app/review/${params.id}`)
             }
         ]
     }

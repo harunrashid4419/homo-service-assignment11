@@ -18,12 +18,31 @@ const Login = () => {
       const email = form.email.value;
       const password = form.password.value;
 
+      
       logIn(email, password)
          .then((result) => {
             const user = result.user;
             console.log(user);
             form.reset();
             setError("");
+
+            const currentUser = {
+               email: user.email,
+            }
+            console.log(currentUser);      
+
+            fetch('https://eleventh-assignment-server.vercel.app/jwt', {
+               method: 'POST',
+               headers: {
+                  'content-type': 'application/json'
+               },
+               body: JSON.stringify(currentUser)
+            })
+               .then(res => res.json())
+               .then(data => {
+                  console.log(data)
+                  localStorage.setItem('token', data.token);
+               })
          })
          .catch((error) => {
             console.error(error);

@@ -12,10 +12,11 @@ const Update = () => {
    const handleSubmit = (event) => {
       event.preventDefault();
 
-      fetch(`http://localhost:5000/review/${review._id}`, {
+      fetch(`https://eleventh-assignment-server.vercel.app/review/${review._id}`, {
          method: "PUT",
          headers: {
             "content-type": "application/json",
+            authorization: `Bearer ${localStorage.getItem('token')}`,
          },
          body: JSON.stringify(displayReview),
       })

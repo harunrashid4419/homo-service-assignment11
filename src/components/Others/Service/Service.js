@@ -2,9 +2,10 @@ import React from "react";
 import "./Service.css";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
+import { Link } from "react-router-dom";
 
 const Service = ({ service }) => {
-   const { service_name, img, price, rating, description } = service;
+   const { service_name, img, price, rating, description, _id } = service;
 
    return (
       <div className="service">
@@ -23,6 +24,11 @@ const Service = ({ service }) => {
                ? description.slice(0, 100) + "..."
                : description}
          </p>
+         <div className="service-btn">
+            <Link to={`/details/${_id}`}>
+               <button className="btn btn-outline btn-info">Details</button>
+            </Link>
+         </div>
       </div>
    );
 };

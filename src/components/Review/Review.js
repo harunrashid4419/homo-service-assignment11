@@ -7,18 +7,32 @@ import './Review.css';
 
 
 const Review = () => {
-   const { user } = useContext(AuthContext);
+   const { user, logOut } = useContext(AuthContext);
    const [review, setReview] = useState([]);
+   const [reviewlength, setReviewLength] = useState({});
    useTitle('Review')
    
+   // if(review.length === 0){
+   //    setReviewLength('no review here')
+   // }
+
    useEffect(() => {
-      fetch(`http://localhost:5000/review?email=${user?.email}`)
-         .then((res) => res.json())
+      fetch(`http://localhost:5000/review?email=${user?.email}`, {
+         headers: {
+            authorization: `Bearer ${localStorage.getItem('token')}`,
+         }
+      })
+         .then((res) => {
+            if(res.status === 401 || res.status === 403){
+               return logOut();
+            }
+            return res.json()
+         })
          .then((data) => {
             // console.log(data);
             setReview(data);
          });
-   }, [user?.email]);
+   }, [user?.email, logOut]);
 
 
    const handleDelete = (id) => {
@@ -26,8 +40,11 @@ const Review = () => {
          `Do you want to delete this review`
       );
       if (agree) {
-         fetch(`http://localhost:5000/review/${id}`, {
+         fetch(`https://eleventh-assignment-server.vercel.app/review/${id}`, {
             method: "DELETE",
+            headers: {
+               authorization: `Bearer ${localStorage.getItem('token')}`,
+            }
          })
             .then((res) => res.json())
             .then((data) => {
@@ -46,7 +63,7 @@ const Review = () => {
          <div className="review-container">
             <h2>User Review:</h2>
             {review.map((r) => (
-               <ShowReview key={r._id} userReview={r} handleDelete={handleDelete}></ShowReview>
+               <ShowReview key={r._id} userReview={r} reviewLength={review} handleDelete={handleDelete}></ShowReview>
             ))}
          </div>
       </div>
