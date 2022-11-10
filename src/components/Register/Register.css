@@ -5,3 +5,8 @@
     padding: 30px 20px;
     border-radius: 10px;
 }
+@media screen and (max-width: 776px) {
+    .registration-section{
+        width: 85%;
+    }
+}

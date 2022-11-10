@@ -59,7 +59,7 @@ const router = createBrowserRouter([
                 path: '/update/:id',
                 element: <Update></Update>,
                 loader: ({params}) => fetch(`https://eleventh-assignment-server.vercel.app/review/${params.id}`)
-            }
+            },
         ]
     }
 ])

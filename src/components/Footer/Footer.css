@@ -35,11 +35,13 @@
     font-size: 18px;
     font-weight: 700;  
 }
+.footer-section .middle-side li{
+    margin-bottom: 10px;
+}
 .footer-section .middle-side a{
     color: white;
     font-size: 18px;
     font-weight: 500;
-    margin-bottom: 5px;
     transition: .5s;
 }
 .footer-section .middle-side a:hover{

@@ -36,14 +36,15 @@ const Footer = () => {
                      </Link>
                   </li>
                </ul>
+               <p>Call Us: 01145544212</p>
             </div>
             <div className="middle-side">
                 <ul>
-                    <li><Link>Home</Link></li>
-                    <li><Link>Blog</Link></li>
-                    <li><Link>Service</Link></li>
-                    <li><Link>Add Service</Link></li>
-                    <li><Link>My Review</Link></li>
+                    <li><Link to='/'>Home</Link></li>
+                    <li><Link to='/blog'>Blog</Link></li>
+                    <li><Link to='services'>Service</Link></li>
+                    <li><Link to='/addService'>Add Service</Link></li>
+                    <li><Link to='/review'>My Review</Link></li>
                 </ul>
             </div>
             <div className="right-side">

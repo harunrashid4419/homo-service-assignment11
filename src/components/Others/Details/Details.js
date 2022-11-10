@@ -9,16 +9,10 @@ const Details = () => {
    useTitle('Service Details')
    const { user } = useContext(AuthContext);
    const [review, setReview] = useState({});
-   const [getReview, setGetReview] = useState({})
+   
    const details = useLoaderData();
    const { service_name, img, description, price, _id } = details;
 
-   useEffect(() => {
-      fetch(`https://eleventh-assignment-server.vercel.app/review`)
-         .then(res => res.json())
-         .then(data => setGetReview(data))
-   },[])
-   
    const reviewDetails = {
       name: user?.displayName,
       photoURL: user?.photoURL,

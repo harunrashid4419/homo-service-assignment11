@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { AuthContext } from "../../Context/UserContext";
 
 const Login = () => {
-   const { logIn, user } = useContext(AuthContext);
-
+   const { logIn, user, updatePassword } = useContext(AuthContext);
+   const [email, setEmail] = useState('');
    const navigate = useNavigate();
    const location = useLocation();
    const from = location.state?.from?.pathname || "/";
@@ -18,18 +19,16 @@ const Login = () => {
       const email = form.email.value;
       const password = form.password.value;
 
-      
+   
       logIn(email, password)
          .then((result) => {
             const user = result.user;
-            console.log(user);
             form.reset();
             setError("");
 
             const currentUser = {
                email: user.email,
-            }
-            console.log(currentUser);      
+            }     
 
             fetch('https://eleventh-assignment-server.vercel.app/jwt', {
                method: 'POST',
@@ -40,7 +39,6 @@ const Login = () => {
             })
                .then(res => res.json())
                .then(data => {
-                  console.log(data)
                   localStorage.setItem('token', data.token);
                })
          })
@@ -49,6 +47,19 @@ const Login = () => {
             setError(error.message);
          });
    };
+
+   const handleEmail = event =>{
+      const email = event.target.value;
+      setEmail(email);
+   }
+
+   const handleForgot = () =>{
+      updatePassword(email)
+         .then( () => {
+            toast.info('please check you email & update password!')
+         })
+         .catch( error => console.error(error));
+   }
 
    useEffect(() => {
       if (user && user?.uid) {
@@ -69,6 +80,7 @@ const Login = () => {
                   placeholder="email"
                   name="email"
                   className="input input-bordered"
+                  onBlur={handleEmail}
                />
             </div>
             <div className="form-control">
@@ -82,7 +94,7 @@ const Login = () => {
                   className="input input-bordered"
                />
                <label className="label">
-                  <Link className="label-text-alt link link-hover">
+                  <Link onClick={handleForgot} className="label-text-alt link link-hover">
                      Forgot password?
                   </Link>
                </label>
