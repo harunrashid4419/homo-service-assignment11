@@ -17,7 +17,7 @@ const Review = () => {
    // }
 
    useEffect(() => {
-      fetch(`http://localhost:5000/review?email=${user?.email}`, {
+      fetch(`https://eleventh-assignment-server.vercel.app/review?email=${user?.email}`, {
          headers: {
             authorization: `Bearer ${localStorage.getItem('token')}`,
          }
