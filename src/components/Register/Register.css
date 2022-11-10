@@ -5,6 +5,15 @@
     padding: 30px 20px;
     border-radius: 10px;
 }
+#input-password{
+    position: relative;
+}
+.icon {
+    position: absolute;
+    top: 60%;
+    right: 2%;
+    transform: translate(-60%, -2%);
+}
 @media screen and (max-width: 776px) {
     .registration-section{
         width: 85%;

@@ -4,6 +4,7 @@ import { AuthContext } from "../../Context/UserContext";
 import "./Register.css";
 import { toast } from "react-toastify";
 import { GoogleAuthProvider } from "firebase/auth";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -11,6 +12,7 @@ const Register = () => {
    const { createUser, googleSignIn, profileUpdate } = useContext(AuthContext);
    const navigate = useNavigate();
    const [error, setError] = useState("");
+   const [showPass, setShowPass] = useState('');
 
    const handleSubmit = (event) => {
       event.preventDefault();
@@ -96,17 +98,23 @@ const Register = () => {
                   required
                />
             </div>
-            <div className="form-control">
+            <div id="input-password" className="form-control">
                <label className="label">
                   <span className="label-text">Enter Password</span>
                </label>
                <input
-                  type="password"
+                  type={showPass ? 'text' : 'password'}
                   placeholder="password"
                   name="password"
                   className="input input-bordered"
                   required
                />
+               <div className="icon" onClick={() => setShowPass(!showPass)}>
+                  {
+                     showPass ? <FaEye/> : <FaEyeSlash/>
+                  }
+                  
+               </div>
             </div>
             <p className="text-red-500 mt-3 ">{error}</p>
             <div className="form-control mt-6">

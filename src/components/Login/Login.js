@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../Context/UserContext";
@@ -6,6 +7,7 @@ import { AuthContext } from "../../Context/UserContext";
 const Login = () => {
    const { logIn, user, updatePassword } = useContext(AuthContext);
    const [email, setEmail] = useState('');
+   const [showPass, setShowPass] = useState('');
    const navigate = useNavigate();
    const location = useLocation();
    const from = location.state?.from?.pathname || "/";
@@ -83,21 +85,23 @@ const Login = () => {
                   onBlur={handleEmail}
                />
             </div>
-            <div className="form-control">
+            <div id="input-password" className="form-control">
                <label className="label">
                   <span className="label-text">Enter Password</span>
                </label>
                <input
-                  type="password"
+                  type={showPass ? 'text' : 'password'}
                   placeholder="password"
                   name="password"
                   className="input input-bordered"
+                  required
                />
-               <label className="label">
-                  <Link onClick={handleForgot} className="label-text-alt link link-hover">
-                     Forgot password?
-                  </Link>
-               </label>
+               <div className="icon" onClick={() => setShowPass(!showPass)}>
+                  {
+                     showPass ? <FaEye/> : <FaEyeSlash/>
+                  }
+                  
+               </div>
             </div>
             <p className="text-red-500">{error}</p>
             <div className="form-control mt-6">
